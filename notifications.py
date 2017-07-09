@@ -47,7 +47,8 @@ while True:
         for to_notify in orders_to_notify:
             ex = to_notify['Exchange']
             order_type = to_notify['OrderType']
-            note_to_push += '%s : %s' % (ex, order_type)
+            limit = to_notify['Limit']
+            note_to_push += '%s : %s : %s' % (ex, order_type, limit)
             note_to_push += '\n'
         print(note_to_push)
         pb.push_note('Order moved!', note_to_push)
